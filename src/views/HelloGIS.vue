@@ -6,6 +6,18 @@
 
 <script>
 export default {
-  name: 'HelloGIS'
+  name: 'HelloGIS',
+  mounted () {
+    this.loadData()
+  },
+  methods: {
+    loadData () {
+      fetch('/api/city').then(response => {
+        return response.json()
+      }).then(data => {
+        console.log(data)
+      })
+    }
+  }
 }
 </script>
